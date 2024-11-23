@@ -115,14 +115,20 @@ body * {
 
     /* Esse translate ele pode fazer um desenho ficar movimentando  */
     transform: translateY(-50%);
-    
+
+    animation: slide-back .2s ;
 }
 
 .ligth #switch button {
-    right: 0;
-    left: initial;
+    animation: slide-in 0.2s forwards;
 
 } 
+
+
+#switch button:hover{
+outline: 8px solid var(--highlight-color);
+}
+
 
 #switch span {
     display: block;
@@ -222,13 +228,36 @@ footer {
 
 }
 
-/* media queris */
+/* media queris , serve para deixar a tela do tamanho que o aparelho for  */
 @media (min-width: 700px) {
     :root {
-        --bg-url: url(./assests/bg-desktop.jpg);
+        --bg-url: url(./assets/bg-desktop.jpg);
     }
 
     .ligth {
-        --bg-url: url(./assets/bg-desktop-light.jpg);
+        --bg-url: url(./assets/bg-desktop-ligth.jpg);
+    }
+}
+
+/* animation , serve para o botão para deixar escuro ou claro , deslizar mais lento */
+
+@keyframes slide-in {
+    /*de onde ele vai começar */
+from {
+    left: 0;
+}
+/*para onde ele vai terminar */
+to {
+    left: 50%;
+}
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    /*para onde ele vai terminar */
+    to {
+        left: 0;
     }
 }
