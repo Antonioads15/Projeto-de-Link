@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.ligth {
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+
+}
+
+
+
+
+body {
+    /*
+   background-image: url(./assets/bg-mobile.jpg);
+   background-repeat: no-repeat;
+   background-position: top center;
+   background-size: cover;
+   */
+    /* da forma de cima esta correto , mais pode deixar resumido esse comido como o de baixo */
+    background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
+}
+
+body * {
+    font-family: "inter", sans-serif;
+    color: var(--text-color);
+}
+
+#container {
+    width: 100%;
+    max-width: 580px;
+    margin: 56px auto 0px;
+    /* essa margin - left e margin de baixo e a magin - right é margin dos lados 
+    margin-left: auto; */
+
+    padding: 0 24px;
+
+
+}
+
+/* Profile */
+
+#profile {
+
+    text-align: center;
+    padding: 24px;
+
+}
+
+
+#profile img {
+
+    width: 112px;
+
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+
+
+}
+
+/*switch*/
+
+#switch{
+    /* esse codigo e apenas para ter a noção do espaço , nao é nescessario usar .
+    border: 1px solid red; */
+
+    position: relative;
+    width: 64px;
+
+
+    /* Posicionamente e alinhamente de DISPLAY BLOCK é assim */
+    margin: 4px auto;
+    
+
+
+
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+
+    /* Esse translate ele pode fazer um desenho ficar movimentando  */
+    transform: translateY(-50%);
+    
+}
+
+.ligth #switch button {
+    right: 0;
+    left: initial;
+
+} 
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/* links */
+
+ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 24px 0;
+}
+
+ul li a {
+
+    /* Posicionamente e alinhamente de DISPLAY FLEX  é assim */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* poder ser feito tambem como height: 52px; */
+    padding: 16px 24px;
+    
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    /*para deixar a linha no meio da frase é LINE-THROUGH , Ppara deixar a linha em cima é o OVERLINE*/
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: background 0,2s;
+
+
+}
+
+ul li a:hover {
+
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+
+}
+
+/*social link , para colocar as imagens pequena em baixo*/
+
+#social-link {
+
+    display: flex;
+
+    /*nessa parte o gap não é nescessario , porque ele deixa a separados os icones de baixo 
+    gap: 16px;
+    */
+
+    justify-content: center;
+
+    padding: 24px 0;
+
+    font-size: 24px;
+
+}
+
+#social-link a {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+
+#social-link a:hover {
+    background: var(--highlight-color);
+
+}
+
+footer {
+    padding: 24px 0;
+    /* Posicionamente e alinhamente de TEXTO  é assim */
+    text-align: center;
+    font-size: 14px;
+
+}
+
+/* media queris */
+@media (min-width: 700px) {
+    :root {
+        --bg-url: url(./assests/bg-desktop.jpg);
+    }
+
+    .ligth {
+        --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+}
